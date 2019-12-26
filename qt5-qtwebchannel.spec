@@ -10,7 +10,7 @@ Summary:	The Qt5 WebChannel library
 Summary(pl.UTF-8):	Biblioteka Qt5 WebChannel
 Name:		qt5-%{orgname}
 Version:	5.14.0
-Release:	1
+Release:	2
 License:	LGPL v2.1 with Digia Qt LGPL Exception v1.1 or GPL v3.0
 Group:		X11/Libraries
 Source0:	http://download.qt.io/official_releases/qt/5.14/%{version}/submodules/%{orgname}-everywhere-src-%{version}.tar.xz
@@ -125,6 +125,11 @@ Przykłady do biblioteki Qt5 WebChannel.
 
 %prep
 %setup -q -n %{orgname}-everywhere-src-%{version}
+
+%{__sed} -i -e '1{
+	s,^#!.*bin/env node,#!/usr/bin/node,
+}' \
+	examples/webchannel/qwclient/qwclient.js
 
 %build
 qmake-qt5
