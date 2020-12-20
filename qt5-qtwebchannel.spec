@@ -6,26 +6,29 @@
 %define		qtbase_ver		%{version}
 %define		qtdeclarative_ver	%{version}
 %define		qttools_ver		%{version}
+%define		qtwebsockets_ver	%{version}
 Summary:	The Qt5 WebChannel library
 Summary(pl.UTF-8):	Biblioteka Qt5 WebChannel
 Name:		qt5-%{orgname}
 Version:	5.15.2
 Release:	2
-License:	LGPL v2.1 with Digia Qt LGPL Exception v1.1 or GPL v3.0
+License:	LGPL v3 or GPL v2 or GPL v3 or commercial
 Group:		X11/Libraries
 Source0:	http://download.qt.io/official_releases/qt/5.15/%{version}/submodules/%{orgname}-everywhere-src-%{version}.tar.xz
 # Source0-md5:	77937260f831c0d9a68900ca10a3bff0
-URL:		http://www.qt.io/
+URL:		https://www.qt.io/
 BuildRequires:	Qt5Core-devel >= %{qtbase_ver}
 BuildRequires:	Qt5Network-devel >= %{qtbase_ver}
 BuildRequires:	Qt5Qml-devel >= %{qtdeclarative_ver}
 BuildRequires:	Qt5Quick-devel >= %{qtdeclarative_ver}
+# for examples
+BuildRequires:	Qt5WebSockets-devel >= %{qtwebsockets_ver}
 %if %{with doc}
 BuildRequires:	qt5-assistant >= %{qttools_ver}
 %endif
 BuildRequires:	qt5-build >= %{qtbase_ver}
 BuildRequires:	qt5-qmake >= %{qtbase_ver}
-BuildRequires:	rpmbuild(macros) >= 1.654
+BuildRequires:	rpmbuild(macros) >= 1.752
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -84,9 +87,7 @@ Summary:	Qt5 WebChannel documentation in HTML format
 Summary(pl.UTF-8):	Dokumentacja do biblioteki Qt5 WebChannel w formacie HTML
 Group:		Documentation
 Requires:	qt5-doc-common >= %{qtbase_ver}
-%if "%{_rpmversion}" >= "5"
-BuildArch:	noarch
-%endif
+%{?noarchpackage}
 
 %description doc
 Qt5 WebChannel documentation in HTML format.
@@ -99,9 +100,7 @@ Summary:	Qt5 WebChannel documentation in QCH format
 Summary(pl.UTF-8):	Dokumentacja do biblioteki Qt5 WebChannel w formacie QCH
 Group:		Documentation
 Requires:	qt5-doc-common >= %{qtbase_ver}
-%if "%{_rpmversion}" >= "5"
-BuildArch:	noarch
-%endif
+%{?noarchpackage}
 
 %description doc-qch
 Qt5 WebChannel documentation in QCH format.
@@ -113,9 +112,7 @@ Dokumentacja do biblioteki Qt5 WebChannel w formacie QCH.
 Summary:	Qt5 WebChannel examples
 Summary(pl.UTF-8):	Przykłady do biblioteki Qt5 WebChannel
 Group:		X11/Development/Libraries
-%if "%{_rpmversion}" >= "5"
-BuildArch:	noarch
-%endif
+%{?noarchpackage}
 
 %description examples
 Qt5 WebChannel examples.
@@ -185,9 +182,11 @@ rm -rf $RPM_BUILD_ROOT
 %files -n Qt5WebChannel
 %defattr(644,root,root,755)
 %doc LICENSE.GPL3-EXCEPT README.md
+# R: Core Qml
 %attr(755,root,root) %{_libdir}/libQt5WebChannel.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libQt5WebChannel.so.5
 %dir %{qt5dir}/qml/QtWebChannel
+# R: Core Qml
 %attr(755,root,root) %{qt5dir}/qml/QtWebChannel/libdeclarative_webchannel.so
 %{qt5dir}/qml/QtWebChannel/plugins.qmltypes
 %{qt5dir}/qml/QtWebChannel/qmldir
