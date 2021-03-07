@@ -87,7 +87,7 @@ Summary:	Qt5 WebChannel documentation in HTML format
 Summary(pl.UTF-8):	Dokumentacja do biblioteki Qt5 WebChannel w formacie HTML
 Group:		Documentation
 Requires:	qt5-doc-common >= %{qtbase_ver}
-%{?noarchpackage}
+BuildArch:	noarch
 
 %description doc
 Qt5 WebChannel documentation in HTML format.
@@ -100,7 +100,7 @@ Summary:	Qt5 WebChannel documentation in QCH format
 Summary(pl.UTF-8):	Dokumentacja do biblioteki Qt5 WebChannel w formacie QCH
 Group:		Documentation
 Requires:	qt5-doc-common >= %{qtbase_ver}
-%{?noarchpackage}
+BuildArch:	noarch
 
 %description doc-qch
 Qt5 WebChannel documentation in QCH format.
@@ -112,7 +112,7 @@ Dokumentacja do biblioteki Qt5 WebChannel w formacie QCH.
 Summary:	Qt5 WebChannel examples
 Summary(pl.UTF-8):	Przykłady do biblioteki Qt5 WebChannel
 Group:		X11/Development/Libraries
-%{?noarchpackage}
+BuildArch:	noarch
 
 %description examples
 Qt5 WebChannel examples.
