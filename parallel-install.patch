@@ -1,0 +1,12 @@
+--- qtwebchannel-everywhere-src-5.15.6/examples/webchannel/qwclient/qwclient.pro.orig	2022-08-16 19:38:00.000000000 +0200
++++ qtwebchannel-everywhere-src-5.15.6/examples/webchannel/qwclient/qwclient.pro	2022-09-10 20:21:43.069938018 +0200
+@@ -2,8 +2,7 @@
+ 
+ exampleassets.files += \
+     qwclient.js \
+-    package.json \
+-    README
++    package.json
+ 
+ exampleassets.path = $$[QT_INSTALL_EXAMPLES]/webchannel/qwclient
+ include(../exampleassets.pri)
