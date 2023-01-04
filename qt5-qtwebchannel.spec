@@ -10,12 +10,12 @@
 Summary:	The Qt5 WebChannel library
 Summary(pl.UTF-8):	Biblioteka Qt5 WebChannel
 Name:		qt5-%{orgname}
-Version:	5.15.7
+Version:	5.15.8
 Release:	1
 License:	LGPL v3 or GPL v2 or GPL v3 or commercial
 Group:		X11/Libraries
 Source0:	https://download.qt.io/official_releases/qt/5.15/%{version}/submodules/%{orgname}-everywhere-opensource-src-%{version}.tar.xz
-# Source0-md5:	ed28842c104c684898260e2b76c29fc1
+# Source0-md5:	cee65cbdb611f97193e3c217ad0297c2
 Patch0:		parallel-install.patch
 URL:		https://www.qt.io/
 BuildRequires:	Qt5Core-devel >= %{qtbase_ver}
