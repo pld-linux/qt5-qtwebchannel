@@ -124,7 +124,7 @@ Przykłady do biblioteki Qt5 WebChannel.
 
 %prep
 %setup -q -n %{orgname}-everywhere-src-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %{__sed} -i -e '1{
 	s,^#!.*bin/env node,#!/usr/bin/node,
